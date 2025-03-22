@@ -34,6 +34,8 @@ const userSlice = createSlice({
 export const { setUser, removeUser } = userSlice.actions
 export default userSlice
 
+// fixed_1
+// export default userSlice.reducer //if you export this you don't need to write userSlice.reducer in store.jsx file in configureStore
 
 /* 
 1.store ki initial value

@@ -18,6 +18,10 @@ import userSlice from './userSlice'
 /* 
 const store = configureStore({
     reducer: themeSlice.reducer, //yhn reducer:"storeKname".reducer,  <--`here reducer is a required keyword with themeSlice argument
+    
+    //fixed_1
+    // Since Now I export "themeSlice.reducer" from "themeslice" file
+    // reducer: themeSlice, 
 })
  */
 
@@ -26,6 +30,10 @@ const store = configureStore({
 const rootReducer = combineReducers({ //ap ye direct nichy bhi likh sakty ho
     user: userSlice.reducer,
     theme: themeSlice.reducer,
+    
+    //fixed_1
+    // Since Now I export "themeSlice.reducer" from "themeslice" file
+    // theme: themeSlice, 
 })
 
 
@@ -51,6 +59,10 @@ const store = configureStore({
     reducer: { //ap ye direct nichy bhi likh sakty ho
         user: userSlice.reducer,
         theme: themeSlice.reducer,
+          
+        //fixed_1
+        // Since Now I export "themeSlice.reducer" from "themeslice" file
+        // theme: themeSlice,
     }
 })
 

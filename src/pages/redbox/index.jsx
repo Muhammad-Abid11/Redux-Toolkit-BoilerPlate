@@ -46,6 +46,7 @@ export default function Redbox() {
                 <div style={{ backgroundColor: "blue", width: "30px", height: "30px", cursor: "pointer" }} onClick={
                     () => dispatch(updateTheme("blue"))}>
                     {/* "dispatch" k under "updateTheme" k function call krengy q k wo "redux" ne btaya hai */}
+                    {/* dispatch callback function k andar "updateTheme" k function call krengy warna "updateTheme" auto trigger hojayega  */}
                 </div>
 
             </div>

@@ -27,6 +27,8 @@ const themeSlice = createSlice({
 export const { updateTheme } = themeSlice.actions //updateTheme k function export ta k hum "redux" ki "state" update kren
 export default themeSlice //themeSlice ko export kiya q k store ko btana hai 
 
+// fixed_1
+// export default themeSlice.reducer //if you export this you don't need to write themeSlice.reducer in store.jsx file in configureStore
 
 /* 
 1.store ki initial value
