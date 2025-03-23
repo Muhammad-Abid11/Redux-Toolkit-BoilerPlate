@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import { Redbox, Greenbox, Bluebox } from "../pages";
+import { ViewPost } from "../ViewPost";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
     {
         path: "/bluebox",
         element: <Bluebox />,
+    },
+    {
+        path: "/rtkquery",
+        element: <ViewPost />,
     },
 ]);
 

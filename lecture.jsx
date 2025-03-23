@@ -47,3 +47,29 @@ header
 outlet sy is liye alag rakha hai q k navigaation work nhi kr rha tha
 
 */
+
+// ---------------------  Redux Toolkit Query  ---------------------
+//https://www.youtube.com/watch?v=60ELggkwLHc
+
+//https://www.npmjs.com/package/json-server //json-server npm link
+//npm i json-server -g
+
+    //we are using dummy local server for testing
+    //json-server --watch db.json --port 3001 //db.json file create kr k us me data save krdo 
+    //json-server --watch .\src\assets\db.json 
+
+    /* 
+    Steps to configure Redux Toolkit Query
+    1. npm i @reduxjs/toolkit-query react-query react-query/devtools
+    2. Create a new file api.js in the store folder
+       a. import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+       b. Create API's using createApi
+       c. export the API's
+    3. Import the API's in the store/index.js file
+        a. Add the API's reducer in the configureStore ( in the rootReducer/combineReducers ) )
+        b. Add the API's middleware to the store
+    4. Use the API's in the components (add a route in the router.jsx file)
+    5. Use the useQuery and useMutation hooks to fetch and mutate the data (refer to the ViewPost.jsx file)
+    6. Add the API's provider in the index.js file
+    
+    */

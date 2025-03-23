@@ -35,6 +35,11 @@ export default function Redbox() {
     const dispatch = useDispatch()
     return (
         <div>
+
+            <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '10px' }}>
+                <button onClick={() => navigate('/rtkquery')}>Learn RTK Query</button>
+            </div>
+
             <h1>UserName : {name} <br />Email : {email}</h1>
             <input type="text" placeholder='Edit user Name' name="username" onChange={(e) => dispatch(setUser({ value: e.target.value, name: "name" }))} />
             <input type="text" placeholder='Edit user Email' name="username" onChange={(e) => dispatch(setUser({ value: e.target.value, name: "email" }))} />

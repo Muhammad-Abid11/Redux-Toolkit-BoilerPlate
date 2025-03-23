@@ -12,6 +12,7 @@ import storage from 'redux-persist/lib/storage'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import themeSlice from './themeslice'
 import userSlice from './userSlice'
+import { myAPI } from './api' //imported from api.js file
 
 
 //-------------x----------when Single-Slice/Reducer
@@ -31,9 +32,13 @@ const rootReducer = combineReducers({ //ap ye direct nichy bhi likh sakty ho
     user: userSlice.reducer,
     theme: themeSlice.reducer,
     
-    //fixed_1
+    //fixed_1 (I think above/below is good practice as it shows reducer keyword with name slice name)
     // Since Now I export "themeSlice.reducer" from "themeslice" file
     // theme: themeSlice, 
+
+    // [themeSlice.name]: themeSlice.reducer, //agar name property set ki hui ho to, this make the name of slice dynamic
+    // [userSlice.name]: userSlice.reducer, //agar name property set ki hui ho to, this make the name of slice dynamic
+    [myAPI.reducerPath]: myAPI.reducer,
 })
 
 
@@ -44,8 +49,12 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const store = configureStore({
-    reducer: persistedReducer//here
-})
+  reducer: persistedReducer, //here
+  // Adding the api middleware enables caching, invalidation, polling,
+  // and other useful features of `rtk-query`.
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(myAPI.middleware),
+});
 const persistor = persistStore(store)
 
 // let store = configureStore(persistedReducer)
