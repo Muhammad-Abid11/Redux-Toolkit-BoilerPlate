@@ -1,7 +1,7 @@
 //Redux Toolkit Query
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { get } from "http";
+
 // from "@reduxjs/toolkit/query/react" <-- yhn "/react" provides hooks for react
 // means hum jo bhi API request banaye ge usy as a hook use karen ge
 
@@ -9,7 +9,7 @@ const BASE_URL = "http://localhost:3000/";
 export interface Post {
     title: string;
     body: string;
-    id?: number;
+    id: number;
 }
 
 
@@ -41,23 +41,25 @@ export const myAPI = createApi({
                 }),
                 invalidatesTags:["Post"] //after update the post it will invalidate the cache and refetch the data
             }),
-/*             updatePost:builder.mutation({
+            updatePost:builder.mutation({
                 query:(post)=>({
                     url:`posts/${post.id}`,
                     method:"PUT",
                     body:post
-                })
-            }), */
-/*             deletePost:builder.mutation({
-                query:(id)=>({
+                }),
+                invalidatesTags:["Post"] //after update the post it will invalidate the cache and refetch the data
+            }),
+            deletePost:builder.mutation<void, number>({
+                query:(id:number)=>({
                     url:`posts/${id}`,
                     method:"DELETE"
-                })
-            }) */
+                }),
+                invalidatesTags:["Post"] //after update the post it will invalidate the cache and refetch the data
+            })
     })
 });
 
 // export const { getPosts } = myAPI.endpoints;
 //both same but as we used above /react so now we can use hooks
 // export const { useGetPostsQuery, useGetPostQuery, useCreatePostMutation, useUpdatePostMutation, useDeletePostMutation } = myAPI
-export const { useGetPostsQuery, useCreatePostMutation } = myAPI;
+export const { useGetPostsQuery, useCreatePostMutation, useDeletePostMutation, useUpdatePostMutation } = myAPI;
