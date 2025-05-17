@@ -3,7 +3,7 @@ name: Firebase CI/CD
 on:
   push:
     branches:
-      - deployment
+      - imposter_deployment
 
 jobs:
   build-and-deploy:
