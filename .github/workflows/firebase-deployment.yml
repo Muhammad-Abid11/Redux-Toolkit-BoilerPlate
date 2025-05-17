@@ -16,10 +16,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '18'
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install --save-dev -f
 
       - name: Build (optional)
         run: npm run build  # if you have a build step
